@@ -1,0 +1,22 @@
+{
+    "params": 
+    {
+        "local_server": "True",
+        "local_uri": "mysql+pymysql://root:@localhost/technify",
+        "prod_uri": "",
+        "fb_url": "www.facebook.com/technify",
+        "tw_url": "www.twitter.com/technify",
+        "gh_url": "www.github.com/technify",
+        "blog_name": "Technify",
+        "tagline": "An adda for the real techies.",
+        "gmail_user": "abhikfiverr1@gmail.com",
+        "gmail_pass": "abhikdas98765",
+        "no_of_posts": 5,
+        "admin_user": "abhik",
+        "admin_pass": "bittu",
+        "image_folder": "C:\\Users\\Abhik\\PycharmProjects\\flask-tut\\static\\img"
+
+    }
+
+
+}

@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading py-5 mt-3">
+                    <h2>Admin Panel</h2>
+                    <span class="subheading">Welcome {{ session['user'] }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="row mb-2">
+        <div class="col d-inline">
+            <div class="d-inline h3">Posts</div>
+            <a href="/add" class="btn btn-primary py-2 ml-3" style="border-radius: 5px;">New Post</a>
+        </div>
+        <div class="col text-right mr-3">
+            <a href="/logout" class="btn btn-primary py-2 px-3" style="border-radius: 5px;">Logout</a>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Posted by</th>
+                <th>Posted on</th>
+                <th>Edit</th>
+                <th>View</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        {% for post in posts %}
+        <tbody>
+            <tr>
+                <td><p class="my-1 h6">{{ post.title }}</p></td>
+                <td><p class="my-1 h6">{{ params['admin_user'] }}</p></td>
+                <td><p class="my-1 h6">{{ post.date }}</p></td>
+                <td><a href="/edit/{{ post.post_id }}" class="btn-sm btn-primary text-decoration-none py-2 px-3">edit</a></td>
+                <td><a href="/post/{{ post.slug }}" class="btn-sm btn-primary text-decoration-none py-2 px-3">view</a></td>
+                <td><a href="/delete/{{ post.post_id }}" class="btn-sm btn-primary text-decoration-none py-2 px-3">delete</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        
+    </table>
+</div>
+
+
+{% endblock body %}

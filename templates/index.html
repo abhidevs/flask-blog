@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+ <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h2>Welcome to {{ params['blog_name'] }}</h2>
+            <span class="subheading">{{ params['tagline'] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+        <!-- Fetching posts from the database -->
+        {% for post in posts %}
+          
+          <div class="post-preview">
+            <a href="/post/{{ post.slug }}">
+              <h3 class="post-title">{{ post.title }}</h3>
+              <h6 class="post-subtitle">{{ post.content[:160] }} <b>Read more..</b></h6>
+            </a>
+            <p class="post-meta">Posted by
+              <a href="#" class="mr-3">{{ params['blog_name'] }}</a>{{ post.date }}</p>
+          </div>
+          <hr>
+
+        {% endfor %}
+
+        
+        <!-- Pager -->
+        <div class="clearfix text-center">
+          <a class="btn-sm btn-primary text-decoration-none py-2 px-3" href="{{loadUrl}}" style="font-size: 0.8em;">Load more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock body %}
+ 
